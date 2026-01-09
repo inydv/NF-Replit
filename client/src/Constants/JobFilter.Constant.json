@@ -1,0 +1,140 @@
+{
+  "EMPLOYMENT_TYPE": [
+    {
+      "NAME": "Full time",
+      "VALUE": "FULL_TIME"
+    },
+    {
+      "NAME": "Part time",
+      "VALUE": "PART_TIME"
+    },
+    {
+      "NAME": "Internship",
+      "VALUE": "INTERNSHIP"
+    },
+   
+    {
+      "NAME": "Contract",
+      "VALUE": "CONTRACT"
+    },
+    {
+      "NAME": "Per Diem",
+      "VALUE": "PER_DIEM"
+    }
+  ],
+  "SALARY_RANGE": [
+    {
+      "NAME": "Under $20,000",
+      "GTE": 5,
+      "LTE": 19999
+    },
+    {
+      "NAME": "$20,000+",
+      "GTE": 20000,
+      "LTE": 40000
+    },
+    {
+      "NAME": "$40,000+",
+      "GTE": 40001,
+      "LTE": 60000
+    },
+    {
+      "NAME": "$60,000+",
+      "GTE": 60001,
+      "LTE": 80000
+    },
+    {
+      "NAME": "$80,000+",
+      "GTE": 80001,
+      "LTE": 100000
+    },
+    {
+      "NAME": "$100,000+",
+      "GTE": 100001,
+      "LTE": 1000000
+    },
+    {
+      "NAME": "$120,000+",
+      "GTE": 120001,
+      "LTE": 140000
+    },
+    {
+      "NAME": "$140,000+",
+      "GTE": 140001,
+      "LTE": 160000
+    },
+    {
+      "NAME": "$160,000+",
+      "GTE": 160001,
+      "LTE": 180000
+    },
+    {
+      "NAME": "$180,000+",
+      "GTE": 180001,
+      "LTE": 200000
+    },
+    {
+      "NAME": "$200,000+",
+      "GTE": 200001,
+      "LTE": 200000
+    }
+  ],
+  "JOB_TYPE": [
+    {
+      "NAME": "Onsite",
+      "VALUE": "ONSITE"
+    },
+    {
+      "NAME": "Remote",
+      "VALUE": "REMOTE"
+    },
+    {
+      "NAME": "Hybrid",
+      "VALUE": "HYBRID"
+    },
+     {
+      "NAME": "Travel",
+      "VALUE": "TRAVEL"
+    }
+  ],
+  "JOB_SHIFT": [
+    {
+      "NAME": "Day",
+      "VALUE": "DAY"
+    },
+    {
+      "NAME": "Night",
+      "VALUE": "NIGHT"
+    },
+    {
+      "NAME": "Morning",
+      "VALUE": "MORNING"
+    },
+    {
+      "NAME": "Afternoon",
+      "VALUE": "AFTERNOON"
+    },
+    {
+      "NAME": "Overnight",
+      "VALUE": "OVERNIGHT"
+    },
+    {
+      "NAME": "Weekend",
+      "VALUE": "WEEKEND"
+    },
+    {
+      "NAME": "Evening",
+      "VALUE": "EVENING"
+    }
+  ],
+  "JOB_PAY_DURATION": [
+    {
+      "NAME": "Hourly",
+      "VALUE": "HOURLY"
+    },
+    {
+      "NAME": "Salary",
+      "VALUE": "SALARY"
+    }
+  ]
+}

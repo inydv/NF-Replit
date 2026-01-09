@@ -1,0 +1,288 @@
+generator client {
+  provider = "prisma-client-js"
+  // output   = "./node_modules/@prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  MASTER
+  JOB_SEEKER
+  RECRUITER
+}
+
+enum AccessPages {
+  JOBS
+  COMPANIES
+  USERS
+  BLOGS
+}
+
+enum SalaryType {
+  HOURLY
+  DAILY
+  WEEKLY
+  MONTHLY
+  YEARLY
+  SALARY
+}
+
+enum EmployementType {
+  FULL_TIME
+  PART_TIME
+  INTERNSHIP
+  CONTRACT
+  FREELANCEING
+  PER_DIEM
+}
+
+enum JobType {
+  REMOTE
+  ONSITE
+  HYBRID
+  TRAVEL
+}
+
+enum Shift {
+  DAY
+  NIGHT
+  MORNING
+  EVENING
+  WEEKEND
+  AFTERNOON
+  OVERNIGHT
+}
+
+enum NotificationsType {
+  SAVED_JOB_INACTIVE
+  POSTED_JOB_INACTIVE
+}
+
+enum TokenType {
+  ACCOUNT_VERIFICATION
+  MODERATOR_INVITATION
+}
+
+model Users {
+  id            String        @id @default(uuid())
+  uid           String        @unique @db.VarChar(200)
+  name          String        @db.VarChar(150)
+  title         String?       @db.VarChar(200)
+  email         String        @unique @db.VarChar(100)
+  phone         String?       @unique @db.VarChar(15)
+  role          Role
+  accessPages   AccessPages[]
+  provider      String        @db.VarChar(50)
+  image         Json?
+  location      String?       @db.VarChar(200)
+  links         Json?
+  about         String?       @db.VarChar(1000)
+  experience    Json[]
+  education     Json[]
+  certification Json[]
+  skills        String[]
+  active        Boolean       @default(true)
+  verified      Boolean       @default(false)
+  isDeleted     Boolean       @default(false)
+  moderators    String[]
+  createdById   String?       @db.VarChar(36)
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  savedJobs     SavedJobs[] // Add this field to reference SavedJobs
+  notifications Notifications[] // Add this field to reference SavedJobs
+  jobs          Jobs[]
+  companies     Companies[]
+  blogs         Blogs[]
+  tokens        Tokens[]
+}
+
+model SubscribedUsers {
+  id        String   @id @default(uuid())
+  email     String?  @unique @db.VarChar(150)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Contacts {
+  id        String   @id @default(uuid())
+  email     String   @unique @db.VarChar(150)
+  name      String   @db.VarChar(150)
+  message   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model QuickJobs {
+  id         String   @id @default(uuid())
+  name       String   @db.VarChar(150)
+  email      String   @db.VarChar(150)
+  website    String   @db.VarChar(1000)
+  payment    Json?
+  isFeatured Boolean
+  isUrgent   Boolean
+  isDrafted  Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Blogs {
+  id          String   @id @default(uuid())
+  title       String   @db.VarChar(500)
+  description String
+  content     String
+  image       Json
+  author      String   @db.VarChar(150)
+  slug        String   @unique @db.VarChar(700)
+  createdById String   @db.VarChar(36)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  createdBy Users @relation(fields: [createdById], references: [id])
+
+  @@unique([id, slug]) // Composite unique constraint
+}
+
+model Companies {
+  id             String   @id @default(uuid())
+  name           String   @db.VarChar(300)
+  image          Json
+  location       String   @db.VarChar(150)
+  website        String   @db.VarChar(1000)
+  slug           String   @unique @db.VarChar(500)
+  personalHealth String[]
+  teamValues     String[]
+  careerGrowth   String[]
+  description    String?
+  establishedAt  String?  @db.VarChar(50)
+  teamsize       String?  @db.VarChar(50)
+  headquarter    String?  @db.VarChar(150)
+  industry       String?  @db.VarChar(150)
+  mission        Json?
+  values         Json?
+  galleries      Json?
+  testimonials   Json?
+  active         Boolean  @default(true)
+  createdById    String   @db.VarChar(36)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  // Relation field
+  jobs      Jobs[]
+  createdBy Users  @relation(fields: [createdById], references: [id])
+
+  @@unique([id, slug]) // Composite unique constraint
+}
+
+model Jobs {
+  id                 String           @id @default(uuid())
+  title              String           @db.VarChar(500)
+  overview           String
+  location           String           @db.VarChar(150)
+  minSalary          Float?
+  maxSalary          Float?
+  salaryType         SalaryType?
+  website            String           @db.VarChar(1000)
+  schedule           String?          @db.VarChar(50)
+  employementType    EmployementType?
+  jobType            JobType?
+  shift              Shift?
+  payment            Json?
+  companyName        String           @db.VarChar(300)
+  companyLocation    String?          @db.VarChar(200)
+  companyImage       Json
+  email              String           @db.VarChar(100)
+  experience         String?          @db.VarChar(150)
+  isUrgent           Boolean          @default(false)
+  isFeatured         Boolean          @default(false)
+  slug               String           @unique @db.VarChar(500)
+  active             Boolean          @default(false)
+  isDrafted          Boolean          @default(true)
+  isPostedOnReddit   Boolean          @default(false)
+  isPostedOnFacebook Boolean          @default(false)
+  createdById        String           @db.VarChar(36)
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+
+  // Foreign key to Companies
+  companyId String?     @db.VarChar(36)
+  company   Companies?  @relation(fields: [companyId], references: [id])
+  createdBy Users       @relation(fields: [createdById], references: [id])
+  savedJobs SavedJobs[] // Add this field to reference SavedJobs
+
+  @@unique([id, slug]) // Composite unique constraint
+}
+
+model CrawledJobs {
+  id                 String          @id @default(uuid())
+  companyName        String          @db.VarChar(300)
+  companyLocation    String          @db.VarChar(200)
+  companyImage       Json
+  title              String          @db.VarChar(500)
+  location           String          @db.VarChar(150)
+  overview           String
+  employementType    EmployementType
+  salaryType         SalaryType
+  minSalary          Float?
+  maxSalary          Float?
+  jobType            JobType
+  website            String          @db.VarChar(1000)
+  slug               String          @unique @db.VarChar(500)
+  provider           String          @db.VarChar(50)
+  isPostedOnReddit   Boolean         @default(false)
+  isPostedOnFacebook Boolean         @default(false)
+  active             Boolean         @default(true)
+  createdAt          DateTime        @default(now())
+
+  savedJobs SavedJobs[] // Add this field to reference SavedJobs
+
+  @@unique([id, slug]) // Composite unique constraint
+}
+
+model SavedJobs {
+  id          String   @id @default(uuid())
+  userId      String
+  jobSlug     String?  @db.VarChar(500) // Foreign key for Jobs
+  crawledSlug String?  @db.VarChar(500) // Foreign key for CrawledJobs
+  createdAt   DateTime @default(now())
+
+  // Relations
+  job        Jobs?        @relation(fields: [jobSlug], references: [slug], map: "SavedJobs_Job_slug_fkey")
+  crawledJob CrawledJobs? @relation(fields: [crawledSlug], references: [slug], map: "SavedJobs_CrawledJob_slug_fkey")
+  user       Users        @relation(fields: [userId], references: [id])
+}
+
+model Sessions {
+  sid    String   @id
+  sess   String
+  expire DateTime
+
+  @@index([expire])
+}
+
+model Notifications {
+  id        String            @id @default(uuid())
+  userId    String
+  type      NotificationsType
+  message   String
+  isRead    Boolean           @default(false)
+  createdAt DateTime          @default(now())
+
+  user Users @relation(fields: [userId], references: [id])
+}
+
+model Tokens {
+  id          String        @id @default(uuid())
+  type        TokenType
+  token       String        @unique
+  accessPages AccessPages[]
+  userId      String        @db.VarChar(36)
+  createdById String?       @db.VarChar(36)
+  createdAt   DateTime      @default(now())
+  expiresAt   DateTime
+
+  user Users @relation(fields: [userId], references: [id])
+}

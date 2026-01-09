@@ -1,0 +1,28 @@
+{
+  "FORM": {
+    "INPUT": "INPUT",
+    "SELECT": "SELECT",
+    "TEXTAREA": "TEXTAREA",
+    "EDITOR": "EDITOR",
+    "FILE": "FILE",
+    "INLINE_INPUT": "INLINE_INPUT",
+    "SELECT_COMPANY": "SELECT_COMPANY"
+  },
+  "SITES": {
+    "LINKEDIN": "linkedin",
+    "GLASSDOOR": "glassdoor",
+    "INDEED": "indeed",
+    "ZIP_RECRUITER": "zip recruiter"
+  },
+  "ROLES": {
+    "MASTER": "MASTER",
+    "JOB_SEEKER": "JOB_SEEKER",
+    "RECRUITER": "RECRUITER"
+  },
+  "ACCESS_PAGES": {
+    "USERS": "USERS",
+    "JOBS": "JOBS",
+    "COMPANIES": "COMPANIES",
+    "BLOGS": "BLOGS"
+  }
+}

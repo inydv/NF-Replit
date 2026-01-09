@@ -1,0 +1,12 @@
+{
+  "useSearch": false,
+  "toolbarButtonSize": "medium",
+  "toolbarAdaptive": false,
+  "toolbarSticky": false,
+  "showCharsCounter": false,
+  "showWordsCounter": false,
+  "showXPathInStatusbar": false,
+  "height": 200,
+  "buttons": "bold,italic,underline,|, font, fontsize, paragraph,|, ul, ol | ,outdent, indent, align,|, undo, redo, image",
+  "askBeforePasteHTML": false
+}

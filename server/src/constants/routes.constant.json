@@ -1,0 +1,13 @@
+{
+  "AUTH": "/api/v1/auth",
+  "BLOGS": "/api/v1/blogs",
+  "COMPANIES": "/api/v1/companies",
+  "JOBS": "/api/v1/jobs",
+  "PAYMENT": "/api/v1/payment",
+  "QUICK_JOBS": "/api/v1/quick-jobs",
+  "REDDIT": "/api/v1/reddit",
+  "SUBSCRIBED_USERS": "/api/v1/subscribed-users",
+  "USERS": "/api/v1/user",
+  "CONTACTS": "/api/v1/contacts",
+  "NOTIFICATIONS": "/api/v1/notifications"
+}

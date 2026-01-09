@@ -1,0 +1,77 @@
+[
+  [
+    {
+      "INPUT_TYPE": "INPUT",
+      "CONTAINER_CLASS": "flex flex-col mb-6 ",
+      "LABEL": "Company Name",
+      "LABEL_CLASS": "block text-base font-medium text-gray-700 text-left p-1",
+      "CLASSNAME": "my-6 p-2 border rounded-md w-full border-black",
+      "NAME": "name",
+      "AUTOFOCUS": true,
+      "REQUIRED": true
+    },
+    {
+      "INPUT_TYPE": "INPUT",
+      "CONTAINER_CLASS": "flex flex-col mb-6 ",
+      "LABEL": "Company Location",
+      "LABEL_CLASS": "block text-base font-medium text-gray-700 text-left p-1",
+      "CLASSNAME": "p-2 pb-4 border rounded-md w-full border-black",
+      "NAME": "location",
+      "REQUIRED": true
+    },
+    {
+      "INPUT_TYPE": "INPUT",
+      "CONTAINER_CLASS": "flex flex-col mb-6 ",
+      "LABEL": "Company Link",
+      "LABEL_CLASS": "block text-base font-medium text-gray-700 text-left p-1",
+      "CLASSNAME": "p-2 pb-4 border rounded-md w-full border-black",
+      "NAME": "website",
+      "REQUIRED": true
+    },
+    {
+      "INPUT_TYPE": "FILE",
+      "CONTAINER_CLASS": "flex flex-col mb-4 ",
+      "LABEL": "Company Logo",
+      "LABEL_CLASS": "block text-base font-medium text-gray-700 text-center p-1",
+      "CLASSNAME": "cursor-pointer bg-brand-200 text-white py-2 px-4 rounded-md hover:bg-brand-600 mx-auto",
+      "NAME": "image",
+      "NAME2": "Upload Logo",
+      "REQUIRED": true
+    }
+  ],
+  [
+    {
+      "INPUT_TYPE": "SELECT",
+      "CONTAINER_CLASS": "flex flex-col mb-4",
+      "LABEL": "Personal Health",
+      "LABEL_CLASS": "block text-base font-medium text-gray-700 text-left p-1",
+      "CLASSNAME": "mt-1 p-2 border rounded-md w-full border-black",
+      "NAME": "personalHealth",
+      "REQUIRED": true,
+      "SELECTION_NAME": "PERSONAL_HEALTH",
+      "MULTIPLE_SELECT": true
+    },
+    {
+      "INPUT_TYPE": "SELECT",
+      "CONTAINER_CLASS": "flex flex-col mb-4",
+      "LABEL": "Team Values",
+      "LABEL_CLASS": "block text-base font-medium text-gray-700 text-left p-1",
+      "CLASSNAME": "mt-1 p-2 border rounded-md w-full border-black",
+      "NAME": "teamValues",
+      "REQUIRED": true,
+      "SELECTION_NAME": "TEAM_VALUES",
+      "MULTIPLE_SELECT": true
+    },
+    {
+      "INPUT_TYPE": "SELECT",
+      "CONTAINER_CLASS": "flex flex-col mb-4",
+      "LABEL": "Career Growth",
+      "LABEL_CLASS": "block text-base font-medium text-gray-700 text-left p-1",
+      "CLASSNAME": "mt-1 p-2 border rounded-md w-full border-black",
+      "NAME": "careerGrowth",
+      "REQUIRED": true,
+      "SELECTION_NAME": "CAREER_GROWTH",
+      "MULTIPLE_SELECT": true
+    }
+  ]
+]

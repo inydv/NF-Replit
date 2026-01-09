@@ -1,0 +1,73 @@
+{
+  "PERSONAL_HEALTH": [
+    {
+      "NAME": "Wellness Programs",
+      "VALUE": "wellness_programs",
+      "FILTER": "company_personal_health"
+    },
+    {
+      "NAME": "Flexibility",
+      "VALUE": "flexibility",
+      "FILTER": "company_personal_health"
+    },
+    {
+      "NAME": "Work Life Balance",
+      "VALUE": "work_life_balance",
+      "FILTER": "company_personal_health"
+    },
+    {
+      "NAME": "Mental Health Support",
+      "VALUE": "mental_health_support",
+      "FILTER": "company_personal_health"
+    }
+  ],
+  "TEAM_VALUES": [
+    {
+      "NAME": "Collaboration",
+      "VALUE": "collaboration",
+      "FILTER": "company_team_values"
+    },
+    {
+      "NAME": "Respect",
+      "VALUE": "respect",
+      "FILTER": "company_team_values"
+    },
+    {
+      "NAME": "Accountability",
+      "VALUE": "accountability",
+      "FILTER": "company_team_values"
+    },
+    {
+      "NAME": "Open Communication",
+      "VALUE": "open_communication",
+      "FILTER": "company_team_values"
+    }
+  ],
+  "CAREER_GROWTH": [
+    {
+      "NAME": "Training Programs",
+      "VALUE": "training_programs",
+      "FILTER": "company_career_growth"
+    },
+    {
+      "NAME": "Promotions From Within",
+      "VALUE": "promotions_from_within",
+      "FILTER": "company_career_growth"
+    },
+    {
+      "NAME": "Tuition Reimbusement",
+      "VALUE": "tuition_reimbusement",
+      "FILTER": "company_career_growth"
+    },
+    {
+      "NAME": "Rotating Nursing Units",
+      "VALUE": "rotating_nursing_units",
+      "FILTER": "company_career_growth"
+    },
+    {
+      "NAME": "High Retention",
+      "VALUE": "high_retention",
+      "FILTER": "company_career_growth"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+[
+  [
+    {
+      "INPUT_TYPE": "INPUT",
+      "TYPE": "email",
+      "CONTAINER_CLASS": "flex flex-col mb-6",
+      "LABEL": "Email (to manage your job post)",
+      "LABEL_CLASS": "block text-lg font-medium text-gray-800 text-left mb-2",
+      "CLASSNAME": "p-3 border rounded-lg w-full border-gray-300 focus:ring-brand-500 focus:border-brand-500",
+      "NAME": "email",
+      "AUTOFOCUS": true,
+      "REQUIRED": true
+    }
+  ],
+  [
+    {
+      "INPUT_TYPE": "SELECT_COMPANY",
+      "CONTAINER_CLASS": "flex flex-col mb-6",
+      "LABEL": "Select Company",
+      "LABEL_CLASS": "block text-lg font-medium text-gray-800 text-left mb-2",
+      "CLASSNAME": "p-3 border rounded-lg w-full border-gray-300 focus:ring-brand-500 focus:border-brand-500",
+      "REQUIRED": false
+    },
+    {
+      "INPUT_TYPE": "INPUT",
+      "CONTAINER_CLASS": "flex flex-col mb-6",
+      "LABEL": "Company Name",
+      "LABEL_CLASS": "block text-lg font-medium text-gray-800 text-left mb-2",
+      "CLASSNAME": "p-3 border rounded-lg w-full border-gray-300 focus:ring-brand-500 focus:border-brand-500",
+      "NAME": "companyName",
+      "AUTOFOCUS": true,
+      "REQUIRED": true
+    },
+    {
+      "INPUT_TYPE": "INPUT",
+      "CONTAINER_CLASS": "flex flex-col mb-6",
+      "LABEL": "Company Location",
+      "LABEL_CLASS": "block text-lg font-medium text-gray-800 text-left mb-2",
+      "CLASSNAME": "p-3 border rounded-lg w-full border-gray-300 focus:ring-brand-500 focus:border-brand-500",
+      "NAME": "companyLocation"
+    },
+    {
+      "INPUT_TYPE": "FILE",
+      "CONTAINER_CLASS": "flex flex-col items-center mb-6",
+      "LABEL": "Upload Company Logo",
+      "LABEL_CLASS": "block text-lg font-medium text-gray-800 text-center mb-2",
+      "CLASSNAME": "cursor-pointer bg-brand-500 hover:bg-brand-600 text-white py-2 px-4 rounded-md w-full text-center",
+      "NAME": "companyImage",
+      "REQUIRED": true
+    }
+  ],
+  [
+    {
+      "INPUT_TYPE": "INPUT",
+      "CONTAINER_CLASS": "flex flex-col mb-6",
+      "LABEL": "Job Title",
+      "LABEL_CLASS": "block text-lg font-medium text-gray-800 text-left mb-2",
+      "CLASSNAME": "p-3 border rounded-lg w-full border-gray-300 focus:ring-brand-500 focus:border-brand-500",
+      "NAME": "title",
+      "AUTOFOCUS": true,
+      "REQUIRED": true
+    },
+    {
+      "INPUT_TYPE": "EDITOR",
+      "CONTAINER_CLASS": "flex flex-col mb-6",
+      "LABEL": "Job Overview",
+      "LABEL_CLASS": "block text-lg font-medium text-gray-800 text-left mb-2",
+      "CLASSNAME": "p-3 border rounded-lg w-full border-gray-300",
+      "NAME": "overview",
+      "REQUIRED": true
+    }
+  ],
+  [
+    {
+      "INPUT_TYPE": "SELECT",
+      "CONTAINER_CLASS": "flex flex-col mb-6",
+      "LABEL": "Employment Type",
+      "LABEL_CLASS": "block text-lg font-medium text-gray-800 text-left mb-2",
+      "CLASSNAME": "p-3 border rounded-lg w-full border-gray-300 focus:ring-brand-500 focus:border-brand-500",
+      "NAME": "employementType",
+      "SELECTION_NAME": "EMPLOYMENT_TYPE"
+    },
+    {
+      "INPUT_TYPE": "SELECT",
+      "CONTAINER_CLASS": "flex flex-col mb-6",
+      "LABEL": "Job Pay Duration",
+      "LABEL_CLASS": "block text-lg font-medium text-gray-800 text-left mb-2",
+      "CLASSNAME": "p-3 border rounded-lg w-full border-gray-300 focus:ring-brand-500 focus:border-brand-500",
+      "NAME": "salaryType",
+      "SELECTION_NAME": "JOB_PAY_DURATION"
+    },
+    {
+      "INPUT_TYPE": "INPUT",
+      "TYPE": "number",
+      "CONTAINER_CLASS": "flex flex-col mb-6",
+      "LABEL": "Minimum Job Pay",
+      "LABEL_CLASS": "block text-lg font-medium text-gray-800 text-left mb-2",
+      "CLASSNAME": "p-3 border rounded-lg w-full border-gray-300 focus:ring-brand-500 focus:border-brand-500",
+      "NAME": "minSalary",
+      "PLACEHOLDER": "Enter amount (e.g., 50000)",
+      "REQUIRED": false
+    },
+    {
+      "INPUT_TYPE": "INPUT",
+      "TYPE": "number",
+      "CONTAINER_CLASS": "flex flex-col mb-6",
+      "LABEL": "Maximum Job Pay",
+      "LABEL_CLASS": "block text-lg font-medium text-gray-800 text-left mb-2",
+      "CLASSNAME": "p-3 border rounded-lg w-full border-gray-300 focus:ring-brand-500 focus:border-brand-500",
+      "NAME": "maxSalary",
+      "PLACEHOLDER": "Enter amount (e.g., 90000)",
+      "REQUIRED": false
+    }
+  ],
+  [
+    {
+      "INPUT_TYPE": "INPUT",
+      "CONTAINER_CLASS": "flex flex-col mb-6",
+      "LABEL": "Job Location",
+      "LABEL_CLASS": "block text-lg font-medium text-gray-800 text-left mb-2",
+      "CLASSNAME": "p-3 border rounded-lg w-full border-gray-300 focus:ring-brand-500 focus:border-brand-500",
+      "NAME": "location",
+      "REQUIRED": true
+    },
+    {
+      "INPUT_TYPE": "SELECT",
+      "CONTAINER_CLASS": "flex flex-col mb-4",
+      "LABEL": "Job Type",
+      "LABEL_CLASS": "block text-base font-medium text-gray-700 text-left p-1",
+      "CLASSNAME": "mt-1 p-2 border rounded-md w-full border-slate-400",
+      "NAME": "jobType",
+      "REQUIRED": false,
+      "SELECTION_NAME": "JOB_TYPE"
+    },
+    {
+      "INPUT_TYPE": "SELECT",
+      "CONTAINER_CLASS": "flex flex-col mb-4",
+      "LABEL": "Job Shift",
+      "LABEL_CLASS": "block text-base font-medium text-gray-700 text-left p-1",
+      "CLASSNAME": "mt-1 p-2 border rounded-md w-full border-slate-400",
+      "NAME": "shift",
+      "SELECTION_NAME": "JOB_SHIFT"
+    }
+  ],
+  [
+    {
+      "INPUT_TYPE": "INPUT",
+      "CONTAINER_CLASS": "flex flex-col mb-6",
+      "LABEL": "Job Application Link",
+      "LABEL_CLASS": "block text-lg font-medium text-gray-800 text-left mb-2",
+      "CLASSNAME": "p-3 border rounded-lg w-full border-gray-300 focus:ring-brand-500 focus:border-brand-500",
+      "NAME": "website",
+      "PLACEHOLDER": "https://company.com/careers",
+      "REQUIRED": true
+    },
+    {
+      "INPUT_TYPE": "INPUT",
+      "CONTAINER_CLASS": "flex flex-col mb-6",
+      "LABEL": "Required Experience",
+      "LABEL_CLASS": "block text-lg font-medium text-gray-800 text-left mb-2",
+      "CLASSNAME": "p-3 border rounded-lg w-full border-gray-300 focus:ring-brand-500 focus:border-brand-500",
+      "NAME": "experience"
+    },
+    {
+      "INPUT_TYPE": "INPUT",
+      "CONTAINER_CLASS": "flex flex-col mb-6",
+      "LABEL": "Work Schedule",
+      "LABEL_CLASS": "block text-lg font-medium text-gray-800 text-left mb-2",
+      "CLASSNAME": "p-3 border rounded-lg w-full border-gray-300 focus:ring-brand-500 focus:border-brand-500",
+      "NAME": "schedule"
+    },
+    {
+      "INPUT_TYPE": "INLINE_INPUT",
+      "CONTAINER_CLASS": "mb-6 flex items-center",
+      "LABEL": "Urgent Hiring",
+      "LABEL_CLASS": "text-lg font-medium text-gray-800 text-left m-2",
+      "CLASSNAME": "w-5 h-5 border rounded-md border-gray-400 focus:ring-brand-500",
+      "NAME": "isUrgent",
+      "TYPE": "checkbox"
+    },
+    {
+      "INPUT_TYPE": "INLINE_INPUT",
+      "CONTAINER_CLASS": "mb-6 flex items-center",
+      "LABEL": "Featured Job",
+      "LABEL_CLASS": "text-lg font-medium text-gray-800 text-left m-2",
+      "CLASSNAME": "w-5 h-5 border rounded-md border-gray-400 focus:ring-brand-500",
+      "NAME": "isFeatured",
+      "TYPE": "checkbox"
+    }
+  ]
+]

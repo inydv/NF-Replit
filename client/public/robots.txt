@@ -1,0 +1,25 @@
+User-agent: *
+Disallow: /manage-job
+Allow: /
+Sitemap: https://www.nursingfront.com/sitemap.xml
+
+# Prevent image indexing
+User-agent: Googlebot-Image
+Disallow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://nursingfront.com/sitemap.xml
+
+# Important pages for crawling
+Allow: /jobs
+Allow: /about
+Allow: /blogs
+Allow: /work-values
+
+# Prevent crawling of dynamic pages that shouldn't be indexed
+Disallow: /login
+Disallow: /signup
+Disallow: /admin
+Disallow: /api

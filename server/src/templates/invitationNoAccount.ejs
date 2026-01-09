@@ -1,0 +1,42 @@
+<%- include('./partials/header'); %>
+
+  <main style="font-family: Arial, sans-serif; line-height: 1.6; padding: 20px">
+    <div style="
+      background-color: white;
+      padding: 20px;
+      max-width: 600px;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    ">
+      <p style="font-size: 16px; color: #333; margin: 0 0 20px">Hello,</p>
+      <p style="font-size: 16px; color: #333; margin: 0 0 20px">
+        <strong>
+          <%= inviterName %>
+        </strong> has sent you an invitation to join NursingFront. However, it appears that you do not have an account
+        with us yet, so we are unable to process the invitation at this time.
+      </p>
+      <p style="font-size: 16px; color: #333; margin: 0 0 20px">
+        Please create an account using the button below. Once your account is created, kindly let <strong>
+          <%= inviterName %>
+        </strong> know at <a href="mailto:<%= inviterEmail %>" style="color: #655ac0;">
+          <%= inviterEmail %>
+        </a> so they can invite you again.
+      </p>
+      <a href="<%= loginLink %>" target="_blank" rel="noopener noreferrer" style="
+        display: inline-block;
+        background-color: #655ac0;
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 4px;
+        margin-top: 20px;
+      ">
+        Create Account
+      </a>
+    </div>
+  </main>
+
+  <%- include('./partials/footer'); %>

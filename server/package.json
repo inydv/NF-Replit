@@ -1,0 +1,62 @@
+{
+  "name": "nursing_front",
+  "version": "1.0.0",
+  "description": "Nursing Front Backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "prisma migrate deploy && prisma generate && node src/index.js",
+    "prod": "prisma migrate deploy && prisma generate && node src/index.js",
+    "dev": "prisma migrate deploy && prisma generate && nodemon src/index.js",
+    "prisma:validate": "prisma validate",
+    "prisma:migration:up": "prisma migrate dev && prisma generate",
+    "prisma:migration:down": "prisma migrate reset"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nduatifm/NursingFront-backend.git"
+  },
+  "keywords": [
+    "nursingFront",
+    "jobBoard"
+  ],
+  "author": "inydv",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nduatifm/NursingFront-backend/issues"
+  },
+  "homepage": "https://github.com/nduatifm/NursingFront-backend#readme",
+  "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "axios": "^1.8.4",
+    "canvas": "^3.1.0",
+    "cloudinary": "^2.6.0",
+    "connect-pg-simple": "^10.0.0",
+    "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.0",
+    "express-session": "^1.18.1",
+    "firebase-admin": "^13.2.0",
+    "google-auth-library": "^9.15.1",
+    "helmet": "^8.1.0",
+    "hpp": "^0.2.3",
+    "joi": "^17.13.3",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.10.0",
+    "papaparse": "^5.5.2",
+    "pg": "^8.15.6",
+    "puppeteer": "^24.12.1",
+    "snoowrap": "^1.23.0",
+    "stripe": "^18.0.0",
+    "xss": "^1.0.15",
+    "zipcodes": "^8.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.7",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.5.3",
+    "prisma": "^6.6.0",
+    "sitemap": "^8.0.0"
+  }
+}
