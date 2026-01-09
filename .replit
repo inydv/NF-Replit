@@ -1,6 +1,10 @@
 # The command that runs the program. If the interpreter field is set, this is the file to run.
 # The interpreter field is set to `node` by default.
 # This runs both client and server concurrently
+# Project: NursingFront - Full-stack job board (React frontend + Node.js/Express backend)
+# Frontend: client/ (Vite + React 18) - Port 5173
+# Backend: server/ (Express 5) - Port 5000
+# Database: PostgreSQL with Prisma ORM
 run = "npm run dev"
 
 # The primary language of the repl. There can be others, though!
