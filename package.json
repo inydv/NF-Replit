@@ -1,0 +1,30 @@
+{
+  "name": "nursingfront-replit",
+  "version": "1.0.0",
+  "description": "NursingFront - Full-stack job board platform",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"cyan,magenta\" \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "install:all": "cd server && npm install && cd ../client && npm install",
+    "start": "cd server && npm start",
+    "prisma:studio": "cd server && npx prisma studio",
+    "prisma:migrate": "cd server && npm run prisma:migration:up",
+    "prisma:generate": "cd server && npx prisma generate",
+    "postinstall": "npm run install:all"
+  },
+  "keywords": [
+    "nursing",
+    "job-board",
+    "react",
+    "nodejs",
+    "express"
+  ],
+  "author": "inydv",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

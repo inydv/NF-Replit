@@ -75,8 +75,31 @@ expressApp.use(
       const allowedOrigins = [
         "https://www.nursingfront.com",
         process.env.FRONTEND_URL,
+        // Allow Replit preview URLs
+        /^https:\/\/.*\.replit\.dev$/,
+        /^https:\/\/.*\.repl\.co$/,
+        /^https:\/\/.*\.id\.repl\.co$/,
+        // Allow localhost for development
+        /^http:\/\/localhost:\d+$/,
+        /^http:\/\/127\.0\.0\.1:\d+$/,
       ];
-      if (!origin || allowedOrigins.includes(origin)) {
+      
+      // Allow requests with no origin (like mobile apps, Postman, or Replit preview)
+      if (!origin) {
+        return callback(null, true);
+      }
+      
+      // Check if origin matches any allowed pattern
+      const isAllowed = allowedOrigins.some((pattern) => {
+        if (typeof pattern === "string") {
+          return pattern === origin;
+        } else if (pattern instanceof RegExp) {
+          return pattern.test(origin);
+        }
+        return false;
+      });
+      
+      if (isAllowed) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));

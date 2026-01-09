@@ -174,24 +174,161 @@ cd client && npm run build
 cd server && npm start
 ```
 
+## Replit-Specific Guide
+
+### ✅ What Replit Can Handle
+
+**Yes, Replit can fully handle:**
+- ✅ **Prisma Schema Changes** - Edit `server/prisma/schema.prisma` and run migrations
+- ✅ **Backend Changes** - All Node.js/Express code changes work normally
+- ✅ **Frontend Changes** - All React/Vite code changes work normally
+- ✅ **Replit Preview** - Preview your app in Replit's webview
+
+### Using Replit Preview
+
+Replit Preview allows you to see your app running directly in Replit:
+
+1. **Click the "Run" button** - This starts both client and server
+2. **Click the "Webview" tab** - This opens your frontend in Replit's preview pane
+3. **The preview URL** will be something like `https://your-repl-name.username.repl.co`
+
+**Important Notes:**
+- The frontend (Vite) runs on port 5173 and is accessible via Replit's preview
+- The backend (Express) runs on port 5000
+- CORS is configured to allow Replit preview URLs automatically
+- Both servers run concurrently when you click "Run"
+
+### Making Prisma Changes in Replit
+
+1. **Edit the schema:**
+   ```bash
+   # Edit server/prisma/schema.prisma
+   ```
+
+2. **Create a migration:**
+   ```bash
+   cd server
+   npm run prisma:migration:up
+   ```
+   This will:
+   - Create a new migration file
+   - Apply it to your database
+   - Regenerate the Prisma client
+
+3. **If you just want to regenerate the client (no schema changes):**
+   ```bash
+   cd server
+   npx prisma generate
+   ```
+
+4. **View your database with Prisma Studio:**
+   ```bash
+   cd server
+   npx prisma studio
+   ```
+   This opens a web interface at `http://localhost:5555`
+
+### Database Setup in Replit
+
+**Option 1: Use Replit Database (Recommended for Replit)**
+- Replit provides a built-in PostgreSQL database
+- Access it via the "Secrets" tab (environment variables)
+- Set `DATABASE_URL` in Replit Secrets
+
+**Option 2: External Database**
+- Use a service like Supabase, Neon, or Railway
+- Set `DATABASE_URL` in Replit Secrets (`.env` file)
+
+**Setting up Replit Secrets:**
+1. Click the "Secrets" tab (lock icon) in Replit
+2. Add your environment variables:
+   - `DATABASE_URL` - Your PostgreSQL connection string
+   - `FRONTEND_URL` - Your Replit preview URL (e.g., `https://your-repl.username.repl.co`)
+   - `BACKEND_URL` - Your backend URL
+   - All other variables from `server/sample.env`
+
+### Making Backend Changes
+
+1. **Edit any file in `server/src/`**
+2. **Nodemon automatically restarts** the server when you save
+3. **Check the console** for any errors
+4. **Test your changes** via the frontend or API endpoints
+
+### Making Frontend Changes
+
+1. **Edit any file in `client/src/`**
+2. **Vite's HMR (Hot Module Replacement)** automatically updates the browser
+3. **Changes appear instantly** in the Replit Preview
+4. **No page refresh needed** for most changes
+
+### Running Commands in Replit
+
+**Terminal 1 (Main):**
+- Used by the "Run" button to start both servers
+- Shows combined output from client and server
+
+**Terminal 2+ (Additional):**
+- Open new terminals for separate commands
+- Useful for running migrations, Prisma Studio, etc.
+
+### Environment Variables in Replit
+
+**Two ways to set environment variables:**
+
+1. **Replit Secrets (Recommended):**
+   - Click the "Secrets" tab (lock icon)
+   - Add variables here
+   - They're automatically available as `process.env.VARIABLE_NAME`
+
+2. **`.env` file:**
+   - Create `server/.env` file
+   - Add your variables (don't commit to git!)
+   - The `.gitignore` already excludes `.env`
+
+### Preview URLs
+
+When your app runs in Replit:
+- **Frontend Preview:** `https://your-repl-name.username.repl.co` (port 5173)
+- **Backend API:** `https://your-repl-name.username.repl.co:5000` (if exposed)
+- **Or use:** `http://localhost:5000` for backend API calls from frontend
+
+The CORS configuration automatically allows Replit preview domains.
+
 ## Troubleshooting
 
 ### Port Conflicts
 
 - Backend runs on port 5000 by default
 - Frontend runs on port 5173 by default
+- Replit automatically handles port forwarding
 - Make sure these ports are available
 
 ### Database Connection Issues
 
-- Verify `DATABASE_URL` in `.env` is correct
-- Ensure PostgreSQL is running
+- Verify `DATABASE_URL` in Replit Secrets or `.env` is correct
+- Ensure PostgreSQL database is accessible
 - Check database credentials
+- For Replit Database, check the Secrets tab
 
 ### Prisma Issues
 
 - Run `npx prisma generate` if Prisma client is missing
 - Run migrations: `npm run prisma:migration:up`
+- If migrations fail, check your `DATABASE_URL`
+- Use `npx prisma studio` to inspect your database
+
+### Replit Preview Not Working
+
+- Make sure both servers are running (check console)
+- Verify frontend is on port 5173
+- Check CORS configuration (already set up for Replit)
+- Try refreshing the preview pane
+
+### Changes Not Reflecting
+
+- **Frontend:** Vite HMR should update automatically. If not, refresh the preview
+- **Backend:** Nodemon should restart automatically. Check console for restart messages
+- **Prisma:** After schema changes, always run `npm run prisma:migration:up`
 
 ## License
 
