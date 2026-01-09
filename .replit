@@ -35,15 +35,11 @@ transport = "localhost:0"
 startCommand = ["node", "--inspect"]
 
 # Enable or disable the language server.
-[languages.javascript]
-languageServer = {
-  start = "typescript-language-server --stdio"
-}
+[languages.javascript.languageServer]
+start = "typescript-language-server --stdio"
 
-[languages.typescript]
-languageServer = {
-  start = "typescript-language-server --stdio"
-}
+[languages.typescript.languageServer]
+start = "typescript-language-server --stdio"
 
 # Specifies environment variables.
 [env]
