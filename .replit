@@ -15,6 +15,7 @@ language = "nodejs"
 hidden = [".config", ".git", "node_modules", ".upm", "dist", "server/public"]
 
 # Specifies which nix channel to use when building the environment.
+# Using default channel - replit.nix handles dependencies
 [nix]
 channel = "stable-22_11"
 
