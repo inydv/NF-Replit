@@ -1,0 +1,58 @@
+# The command that runs the program. If the interpreter field is set, this is the file to run.
+# The interpreter field is set to `node` by default.
+# This runs both client and server concurrently
+run = "npm run dev"
+
+# The primary language of the repl. There can be others, though!
+language = "nodejs"
+
+# A list of globs that specify which files and directories should
+# be hidden in the workspace.
+hidden = [".config", ".git", "node_modules", ".upm", "dist", "server/public"]
+
+# Specifies which nix channel to use when building the environment.
+[nix]
+channel = "stable-22_11"
+
+# Sets the run command for the interpreter.
+[interpreter]
+command = ["node"]
+
+# Enable or disable the debugger.
+[debugger]
+support = true
+transport = "localhost:0"
+startCommand = ["node", "--inspect"]
+
+# How to run the program before the debugger starts.
+[debugger.interactive]
+transport = "localhost:0"
+startCommand = ["node", "--inspect"]
+
+# Enable or disable the language server.
+[languages.javascript]
+languageServer = {
+  start = "typescript-language-server --stdio"
+}
+
+[languages.typescript]
+languageServer = {
+  start = "typescript-language-server --stdio"
+}
+
+# Specifies environment variables.
+[env]
+NODE_ENV = "development"
+
+# The entrypoint file for the unit tests.
+[unitTest]
+language = "nodejs"
+
+# Specifies the packager to use.
+[packager]
+language = "nodejs"
+ignoredPackages = ["unit_tests"]
+
+# Specifies the deploy command.
+[deploy]
+run = ["sh", "-c", "cd client && npm run build"]
