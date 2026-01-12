@@ -26,7 +26,7 @@ module.exports = (expressApp) => {
   });
 
   const port = process.env.PORT || 5000;
-  const server = expressApp.listen(port, () => {
+  const server = expressApp.listen(port, "0.0.0.0", () => {
     console.log(`🚀 SERVER IS WORKING ON ${port}.....`);
   });
 

@@ -1,59 +1,47 @@
-# The command that runs the program. If the interpreter field is set, this is the file to run.
-# The interpreter field is set to `node` by default.
-# This runs both client and server concurrently
-# Project: NursingFront - Full-stack job board (React frontend + Node.js/Express backend)
-# Frontend: client/ (Vite + React 18) - Port 5173
-# Backend: server/ (Express 5) - Port 5000
-# Database: PostgreSQL with Prisma ORM
+modules = ["nodejs-20", "web", "postgresql-16"]
 run = "npm run dev"
+hidden = [".config", ".git", "node_modules", "dist"]
 
-# The primary language of the repl. There can be others, though!
-language = "nodejs"
-
-# A list of globs that specify which files and directories should
-# be hidden in the workspace.
-hidden = [".config", ".git", "node_modules", ".upm", "dist", "server/public"]
-
-# Specifies which nix channel to use when building the environment.
-# Using default channel - replit.nix handles dependencies
 [nix]
-channel = "stable-22_11"
+channel = "stable-24_05"
 
-# Sets the run command for the interpreter.
-[interpreter]
-command = ["node"]
+[deployment]
+deploymentTarget = "autoscale"
+build = ["npm", "run", "build"]
+run = ["npm", "run", "start"]
 
-# Enable or disable the debugger.
-[debugger]
-support = true
-transport = "localhost:0"
-startCommand = ["node", "--inspect"]
+[[ports]]
+localPort = 3000
+externalPort = 3001
 
-# How to run the program before the debugger starts.
-[debugger.interactive]
-transport = "localhost:0"
-startCommand = ["node", "--inspect"]
+[[ports]]
+localPort = 5000
+externalPort = 80
 
-# Enable or disable the language server.
-[languages.javascript.languageServer]
-start = "typescript-language-server --stdio"
+[[ports]]
+localPort = 5001
+externalPort = 3000
 
-[languages.typescript.languageServer]
-start = "typescript-language-server --stdio"
+[workflows]
+runButton = "Project"
 
-# Specifies environment variables.
-[env]
-NODE_ENV = "development"
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
 
-# The entrypoint file for the unit tests.
-[unitTest]
-language = "nodejs"
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Start application"
 
-# Specifies the packager to use.
-[packager]
-language = "nodejs"
-ignoredPackages = ["unit_tests"]
+[[workflows.workflow]]
+name = "Start application"
+author = "agent"
 
-# Specifies the deploy command.
-[deploy]
-run = ["sh", "-c", "cd client && npm run build"]
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
+waitForPort = 5000
+
+[agent]
+integrations = ["javascript_object_storage:2.0.0"]
