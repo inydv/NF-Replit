@@ -42,11 +42,6 @@ NursingFront-replit/
 - PostgreSQL database
 - Environment variables (see `server/sample.env`)
 
-### Installation
-```bash
-npm install  # Installs all dependencies
-```
-
 ### Setup
 1. Copy `server/sample.env` to `server/.env` and configure
 2. Run migrations: `cd server && npm run prisma:migration:up`

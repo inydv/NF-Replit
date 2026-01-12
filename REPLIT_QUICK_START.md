@@ -11,13 +11,7 @@
 
 ## 📋 Setup Checklist
 
-### 1. Install Dependencies
-```bash
-npm install
-```
-This installs root dependencies and automatically installs client/server deps.
-
-### 2. Set Up Database
+### 1. Set Up Database
 **Option A: Replit Database (Easiest)**
 - Go to "Secrets" tab (lock icon)
 - Add `DATABASE_URL` with your PostgreSQL connection string
@@ -26,7 +20,7 @@ This installs root dependencies and automatically installs client/server deps.
 - Use Supabase, Neon, Railway, etc.
 - Add `DATABASE_URL` to Replit Secrets
 
-### 3. Set Environment Variables
+### 2. Set Environment Variables
 Add these to Replit Secrets (or `server/.env`):
 - `DATABASE_URL` - PostgreSQL connection
 - `FRONTEND_URL` - Your Replit preview URL (e.g., `https://your-repl.username.repl.co`)
@@ -36,18 +30,18 @@ Add these to Replit Secrets (or `server/.env`):
 - `COOKIE_SECRET` - Random secret string
 - Other API keys (see `server/sample.env`)
 
-### 4. Run Database Migrations
+### 3. Run Database Migrations
 ```bash
 npm run prisma:migrate
 ```
 
-### 5. Start the App
+### 4. Start the App
 Click the **"Run"** button in Replit, or:
 ```bash
 npm run dev
 ```
 
-### 6. View Your App
+### 5. View Your App
 Click the **"Webview"** tab to see your frontend!
 
 ## 🔧 Common Tasks

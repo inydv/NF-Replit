@@ -18,19 +18,9 @@ A full-stack job board application for nursing professionals, built with React (
 - PostgreSQL database
 - Environment variables configured (see `.env` setup below)
 
-### Installation
+### Setup
 
-1. **Install dependencies for both client and server:**
-
-```bash
-# Install server dependencies
-cd server && npm install
-
-# Install client dependencies  
-cd ../client && npm install
-```
-
-2. **Set up environment variables:**
+1. **Set up environment variables:**
 
 Create a `.env` file in the `server/` directory based on `server/sample.env`:
 

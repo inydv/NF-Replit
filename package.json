@@ -8,12 +8,10 @@
     "dev:server": "cd server && npm run dev",
     "dev:client": "cd client && npm run dev",
     "build": "cd client && npm run build",
-    "install:all": "cd server && npm install && cd ../client && npm install",
     "start": "cd server && npm start",
     "prisma:studio": "cd server && npx prisma studio",
     "prisma:migrate": "cd server && npm run prisma:migration:up",
-    "prisma:generate": "cd server && npx prisma generate",
-    "postinstall": "npm run install:all"
+    "prisma:generate": "cd server && npx prisma generate"
   },
   "keywords": [
     "nursing",
