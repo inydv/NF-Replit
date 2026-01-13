@@ -6,5 +6,5 @@ vite.config.ts.*
 *.tar.gz
 .env
 .env.production
-server/src/constants/firebase.constant.json
-server/src/constants/firebaseTest.constant.json
+server/constants/firebase.constant.json
+server/constants/firebaseTest.constant.json
