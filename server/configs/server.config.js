@@ -1,7 +1,4 @@
 const cloudinary = require("cloudinary");
-// const express = require("express");
-const path = require("path")
-
 const { sendMail } = require("../utils");
 
 module.exports = (expressApp) => {
@@ -26,18 +23,6 @@ module.exports = (expressApp) => {
     cloud_name: process.env.CLOUDINARY_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET,
-  });
-
-  // USE BUILD INDEX.JS
-  // expressApp.use(express.static(path.join(__dirname, "dist")));
-
-  expressApp.use((req, res, next) => {
-    // FOR NON-API ROUTES, SEND THE "index.html" FILE
-    if (!req.originalUrl.startsWith('/api/v1')) 
-      return res.sendFile('index.html', { root: path.join(__dirname, 'dist') });
-
-    // FOR API ROUTES, CONTINUE TO THE NEXT MIDDLEWARE
-    next();
   });
 
   const port = process.env.PORT || 5000;

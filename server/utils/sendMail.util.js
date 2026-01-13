@@ -18,7 +18,7 @@ module.exports = async ({ email, subject, template, data }) => {
 
     // Template Path
     const templatePath = path.resolve(
-      __dirname,
+      process.cwd(),
       `../templates/${template}.ejs`
     );
 

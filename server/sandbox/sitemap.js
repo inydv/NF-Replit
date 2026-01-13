@@ -9,7 +9,7 @@ const apiEndpoints = {
   jobs: "https://www.backend.nursingfront.com/api/v1/job",
   companies: "https://www.backend.nursingfront.com/api/v1/company",
 };
-const outputDir = path.join(__dirname, "public");
+const outputDir = path.join(process.cwd(), "public");
 const sitemapPath = path.join(outputDir, "sitemap.xml");
 
 // Ensure the output directory exists

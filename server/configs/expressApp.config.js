@@ -7,6 +7,7 @@ const rateLimit = require("express-rate-limit");
 const pgSession = require("connect-pg-simple")(session);
 const { Pool } = require("pg");
 const crypto = require("crypto");
+const path = require("path");
 
 const { errors, sanitizeInputs } = require("../middlewares");
 const { errorHandler } = require("../helpers");
@@ -83,12 +84,12 @@ expressApp.use(
         /^http:\/\/localhost:\d+$/,
         /^http:\/\/127\.0\.0\.1:\d+$/,
       ];
-      
+
       // Allow requests with no origin (like mobile apps, Postman, or Replit preview)
       if (!origin) {
         return callback(null, true);
       }
-      
+
       // Check if origin matches any allowed pattern
       const isAllowed = allowedOrigins.some((pattern) => {
         if (typeof pattern === "string") {
@@ -98,7 +99,7 @@ expressApp.use(
         }
         return false;
       });
-      
+
       if (isAllowed) {
         callback(null, true);
       } else {
@@ -140,6 +141,20 @@ expressApp.use(
     }),
   })
 );
+
+// USE BUILD INDEX.JS
+expressApp.use(express.static(path.join(process.cwd(), "dist")));
+
+expressApp.use((req, res, next) => {
+  // FOR NON-API ROUTES, SEND THE "index.html" FILE
+  if (!req.originalUrl.startsWith("/api/v1"))
+    return res.sendFile("index.html", {
+      root: path.join(process.cwd(), "dist"),
+    });
+
+  // FOR API ROUTES, CONTINUE TO THE NEXT MIDDLEWARE
+  next();
+});
 
 // View engine
 expressApp.set("view engine", "ejs");
